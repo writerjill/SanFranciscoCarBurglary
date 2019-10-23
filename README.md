@@ -5,6 +5,8 @@
 - Provide the insights between car burglary intensity and neighborhood characteristics such as numbers of top attractions, parking structures, restaurants, and hotels.
 - Exclude all features that directly discriminate income and demographic.
 
+![Reported car burglary](Images/Example.png)
+
 Car burglary or vehicle break-in is the most common crime in San Francisco with the average of 71 reported incidents per day\[[1](https://projects.sfchronicle.com/trackers/sf-car-breakins/)\]. Even though car burglary usually does not lead to assault and battery, it severely causes panic in a day-to-day life of residents, merchants, and tourists in the city. This persistent car burglary problem continues to erode city’s economy in addition to the loss of personal properties.
 
 Understanding what control the intensity of car burglary in San Francisco is the first step for law enforcement and city planning units to alleviate the problem. It also helps insurance companies, business owners, and residents to access the risk of car burglary in each locality. So far, the locations of high intensity are visually identified as tourist attractions such as pier 39, palace of fine art, and painted ladies.\[[2](https://www.spotangels.com/blog/sf-parking-car-break-ins/),[3](https://projects.sfchronicle.com/2018/sf-car-breakins/)\] However, car burglary is a city-wide problem with various levels of intensity. There should be more connections between the intensity levels and the characteristic of the neighborhood such as numbers of parking structures, restaurants, hotels, groceries, and police stations.
