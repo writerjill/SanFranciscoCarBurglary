@@ -1,5 +1,4 @@
-# San Francisco Car Burglary
-**Applying machine learning to car burglary in San Francisco: Revealing the connections between neighborhoods and car burglary intensity**
+# Applying machine learning to car burglary in San Francisco: Revealing the connections between neighborhoods and car burglary intensity
 
 ### Hi-lights
 - Achieve 80% city-wide accuracy of identifying the intensity of car burglary using tree and random forest models.
@@ -36,11 +35,11 @@ In this project, the intensity of car burglary was defined by the number of inci
 
 The neighborhood characteristic is defined by the numbers of top attractions, parking structures, restaurants, hotels, groceries, and police stations around each location point. The list of top 20 tourist attractions come from planetware website\[[6](https://www.planetware.com/tourist-attractions-/san-francisco-us-ca-sf.htm)\]. Note that this project excludes the Presidio area. The addresses and reviewing information of 691 parking structures, 1430 restaurants, 454 groceries, 182 hotels, and 26 police stations were gathered from Google map website. The addresses of these places were converted to UTM coordinates using geopy\[[7](https://geopy.readthedocs.io/en/stable/)\] and pyproj packages.
 
-The locations of these places are shown together with the intensity of car burglary in the picture below. As suggested by many previous studies, neighborhood nearby the top attractions have very high (green) or extremely high (yellow) levels of car burglary. However, not all of extremely high intensity area has top attraction nearby. Parking structures and hotels are tightly located in the tourist attractions, downtown, and the Lombard St. Restaurant locations are similar to parking structures and hotels except they also tightly distributed along
+The locations of these places are shown together with the intensity of car burglary in the picture below. As suggested by many previous studies, neighborhood nearby the top attractions have very high (green) or extremely high (yellow) levels of car burglary. However, not all of extremely high intensity area has top attraction nearby. Parking structures and hotels are tightly located in the tourist attractions, downtown, and the Lombard St. Restaurant locations are similar to parking structures and hotels except they also tightly distributed along main streets outside down town area. The locations of groceries are roughly spread out through the city.
 
 ![Dataset](Images/Dataset.png)
 
-In addition to locations, the reviewing information (score, number of reviewers, and price) of those places may have connection to the intensity of car burglary. The example is the number of reviewers of restaurants as shown in the picture below. The higher number of reviewers is associated withthe down town and tourist attraction areas, which have high to extremely high car burglary intensity.
+In addition to locations, the reviewing information (score, number of reviewers, and price) of those places may have connection to the intensity of car burglary. The example is the number of reviewers of restaurants as shown in the picture below. The higher number of reviewers is associated with the downtown and tourist attraction areas, which have high to extremely high car burglary intensity.
 
 ![Dataset](Images/DatasetSub.png)
 
@@ -48,7 +47,7 @@ In addition to locations, the reviewing information (score, number of reviewers,
 
 ### Model setup
 
-This project applied four machine learning models (linear regressor\[[8](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html)\], tree regressor\[[9](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html)\], random forestregressor\[[10](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html)\], and gradient boostingregressor\[[11](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html)\]) to reveal the connections between neighborhood characteristics and car burglary intensity. Note that the linear regressor serves as a baseline comparison to the other three models. For all models, the outcome (Y) is the levels or ordinal classes of car burglary intensity (from 1 to 6). The features (X) are the number of previously mentioned places with their reviews information within near and far distances as summarizedin the table below.Note that the features that directly discriminate income and demographic are intentionally excluded in this project.
+This project applied four machine learning models (linear regressor\[[8](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html)\], tree regressor\[[9](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html)\], random forest regressor\[[10](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html)\], and gradient boosting regressor\[[11](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html)\]) to reveal the connections between neighborhood characteristics and car burglary intensity. Note that the linear regressor serves as a baseline comparison to the other three models. For all models, the outcome (Y) is the levels or ordinal classes of car burglary intensity (from 1 to 6). The features (X) are the number of previously mentioned places with their reviews information within near and far distances as summarizedin the table below.Note that the features that directly discriminate income and demographic are intentionally excluded in this project.
 
 ![Features](Images/Features.png)
 
@@ -65,13 +64,13 @@ The table below summarizes the tuning and other parameters of each model. Max de
 | Model | Tuning parameters via CV | Other parameters |
 |-------|--------------------------|------------------|
 | Tree | max depth = 30| |
-| Random forest | max depth = 21 | max features = sqrt number of trees = 50 |
-| Gradient boosting | learning rate= 1 boosting stage = 70 max depth= 6 | max features = sqrt subsample = 0.8 |
+| Random forest | max depth = 21 | max features = sqrt, number of trees = 50 |
+| Gradient boosting | learning rate= 1, boosting stage = 70, max depth= 6 | max features = sqrt, subsample = 0.8 |
 
 ![CV loss](Images/CvLoss.png)
 
 ### Model fitting results
-The figure below displays the results of fitted linear, tree, random forest, and gradient boosting models.The fitting result of a linear model is crude as a baseline purpose. However, the fitted tree, random forest, and gradient boosting models are able to capture almost all patterns of car burglary in the city. The models correctly identify the areas of high (blue), very high (green), and extremely high (yellow) levels of intensity. They also reach 80% city-wide accuracy. The main fitting error comes from separating almost none (black) and mild (purple) levels in the residential areas in the west side of the city. Note that gradient boosting model is less stable than tree and random forest models causing slightly lower accuracy.
+The figure below displays the results of fitted linear, tree, random forest, and gradient boosting models.The fitting result of a linear model is crude as for a baseline purpose. However, the fitted tree, random forest, and gradient boosting models are able to capture almost all patterns of car burglary in the city. The models correctly identify the areas of high (blue), very high (green), and extremely high (yellow) levels of intensity. They also reach 80% city-wide accuracy. The main fitting error comes from separating almost none (black) and mild (purple) levels in the residential areas in the west side of the city. Note that gradient boosting model is less stable than tree and random forest models causing slightly lower accuracy.
 
 ![Results](Images/Result.png)
 
