@@ -1,6 +1,6 @@
-# Applying machine learning to car burglary in San Francisco: Revealing the connections between neighborhoods and car burglary intensity
+# Applying machine learning to car burglaries in San Francisco: Revealing the connections between neighborhoods and car burglary intensity
 
-### Hi-lights
+### Hilights
 - Achieve 80% city-wide accuracy of identifying the intensity of car burglary using tree and random forest models.
 - Provide the insights between car burglary intensity and neighborhood characteristics such as numbers of top attractions, parking structures, restaurants, and hotels.
 - Exclude all features that directly discriminate income and demographic.
